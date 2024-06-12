@@ -421,12 +421,12 @@ public class iPassSDKManger {
             let dataValues = EnglishDataValues()
             translationDictionary = dataValues.getDictionary()
         }
-//        DocReader.shared.localizationHandler = { localizationKey in
-//            if let updatedString = translationDictionary[localizationKey] {
-//                return updatedString
-//            }
-//            return nil
-//        }
+        DocReader.shared.localizationHandler = { localizationKey in
+            if let updatedString = translationDictionary[localizationKey] {
+                return updatedString
+            }
+            return nil
+        }
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
             startDocumentProcessing()
         }

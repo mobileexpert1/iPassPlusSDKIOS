@@ -236,9 +236,9 @@ public class iPassHandler {
         guard let url = URL(string: url) else {
             return
         }
-//        print("CHECK DETAILS FROM HERE")
-//        print(url)
-//        print(params)
+        print("CHECK DETAILS FROM HERE")
+        print(url)
+        print(params)
         // Create a URLRequest with the URL, setting the HTTP method to "POST"
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
