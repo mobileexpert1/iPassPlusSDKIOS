@@ -717,10 +717,10 @@ public class iPassSDKManger {
     }
     
     
-    func convertStringToJSON(_ dictionary: [String: Any]) -> Any? {
+    func convertStringToJSON(_ jsonString: String) -> Any? {
         do {
             // Convert dictionary to JSON data
-            let jsonData = try JSONSerialization.data(withJSONObject: dictionary, options: [])
+            let jsonData = try JSONSerialization.data(withJSONObject: jsonString, options: [])
             
             // Convert JSON data back to a JSON object
             let jsonObject = try JSONSerialization.jsonObject(with: jsonData, options: [])
