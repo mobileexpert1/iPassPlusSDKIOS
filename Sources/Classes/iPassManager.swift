@@ -605,7 +605,7 @@ public class iPassSDKManger {
        
       
         
-        let documentDataJson = convertStringToJSON(iPassSDKDataManager.shared.resultScanData.rawResult)
+        let documentDataJson = convertStringToJSON(iPassSDKDataManager.shared.resultScanData.jsonDictionary())
         
         var userIpAddress = "Unable to get IP Address"
         
@@ -717,7 +717,7 @@ public class iPassSDKManger {
     }
     
     
-    private static func convertStringToJSON(_ jsonString: String) -> Any? {
+    private static func convertStringToJSON(_ jsonString: [AnyHashable: Any]) -> Any? {
         do {
             // Convert dictionary to JSON data
             let jsonData = try JSONSerialization.data(withJSONObject: jsonString, options: [])
