@@ -701,7 +701,7 @@ public class iPassSDKManger {
         return address
     }
     
-    private static func convertStringToJSON(_ jsonString: String) -> Any? {
+    private static func convertStringToJSONff(_ jsonString: String) -> Any? {
         // Convert the string to Data
         guard let jsonData = jsonString.data(using: .utf8) else {
             return nil
@@ -712,6 +712,22 @@ public class iPassSDKManger {
             let jsonObject = try JSONSerialization.jsonObject(with: jsonData, options: [])
             return jsonObject
         } catch {
+            return nil
+        }
+    }
+    
+    
+    func convertStringToJSON(_ dictionary: [String: Any]) -> Any? {
+        do {
+            // Convert dictionary to JSON data
+            let jsonData = try JSONSerialization.data(withJSONObject: dictionary, options: [])
+            
+            // Convert JSON data back to a JSON object
+            let jsonObject = try JSONSerialization.jsonObject(with: jsonData, options: [])
+            
+            return jsonObject
+        } catch {
+            print("Error serializing dictionary to JSON: \(error)")
             return nil
         }
     }
