@@ -444,7 +444,7 @@ public class iPassSDKManger {
         DocReader.shared.showScanner(presenter: iPassSDKDataManager.shared.controller, config: config) { [self] (action, docResults, error) in
             if action == .complete || action == .processTimeout {
                 
-                print(docResults?.rawResult ?? "")
+               
                
                 if docResults?.chipPage != 0  {
                     DocReader.shared.startRFIDReader(fromPresenter: iPassSDKDataManager.shared.controller, completion: {  []  (action, results, error) in
