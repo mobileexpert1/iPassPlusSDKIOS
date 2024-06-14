@@ -354,7 +354,7 @@ public class iPassSDKManger {
         DocReader.shared.processParams.returnUncroppedImage = true
         
         
-        DocReader.shared.processParams.dateFormat = "dd-mm-yyyy"
+      //  DocReader.shared.processParams.dateFormat = iPassSDKDataManager.shared.documentDateFormat
         
         
         DocReader.shared.processParams.multipageProcessing = true
