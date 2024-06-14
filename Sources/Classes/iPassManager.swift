@@ -37,6 +37,7 @@ public class iPassSDKDataManager {
     var loaderColor = UIColor(red: 126/255, green:87/255, blue: 196/255, alpha: 1.0)
     var needHologram = true
     var alreadyReturned = false
+    var documentDateFormat = "dd-mm-yyyy"
 }
 
 
@@ -47,6 +48,9 @@ public class configProperties {
     }
     public static func needHologramDetection(value: Bool) {
         iPassSDKDataManager.shared.needHologram = value
+    }
+    public static func setDateFormat(format: String) {
+        iPassSDKDataManager.shared.documentDateFormat = format
     }
 }
 
@@ -347,7 +351,11 @@ public class iPassSDKManger {
     
     private static func setDocumentScannerProperties() {
         DocReader.shared.processParams.returnUncroppedImage = true
+        
+        
         DocReader.shared.processParams.dateFormat = "dd-mm-yyyy"
+        
+        
         DocReader.shared.processParams.multipageProcessing = true
         DocReader.shared.customization.cameraFrameDefaultColor  = UIColor(red: 126/255, green: 87/255, blue: 196/255, alpha: 1)
         DocReader.shared.customization.tintColor  = UIColor(red: 126/255, green: 87/255, blue: 196/255, alpha: 1)
@@ -360,6 +368,7 @@ public class iPassSDKManger {
         DocReader.shared.processParams.authenticityParams?.livenessParams?.checkOVI = NSNumber(value: iPassSDKDataManager.shared.needHologram)
         DocReader.shared.processParams.authenticityParams?.livenessParams?.checkED = NSNumber(value: iPassSDKDataManager.shared.needHologram)
         DocReader.shared.processParams.authenticityParams?.livenessParams?.checkMLI = NSNumber(value: iPassSDKDataManager.shared.needHologram)
+       
         DocReader.shared.processParams.authenticityParams?.checkImagePatterns = NSNumber(value: iPassSDKDataManager.shared.needHologram)
         DocReader.shared.processParams.authenticityParams?.checkPhotoEmbedding = NSNumber(value: iPassSDKDataManager.shared.needHologram)
         DocReader.shared.processParams.authenticityParams?.checkBarcodeFormat = NSNumber(value: iPassSDKDataManager.shared.needHologram)
