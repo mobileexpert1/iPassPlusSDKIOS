@@ -38,6 +38,7 @@ public class iPassSDKDataManager {
     var needHologram = true
     var alreadyReturned = false
     var documentDateFormat = "dd-mm-yyyy"
+    var dummy123 = false
 }
 
 
